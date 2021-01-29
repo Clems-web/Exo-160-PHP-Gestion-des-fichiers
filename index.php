@@ -6,7 +6,8 @@
  * --> Attention à bien fermer votre fichier si vous utilisez fopen()
  */
 // TODO Votre code ici.
-
+$text = "lorem ipsum adamet";
+file_put_contents("blabla.txt", $text);
 
 /**
  * 3. Créez un tableau contenant au moins 10 chaînes de caractère au choix.
@@ -15,6 +16,14 @@
  * --> Attention: les chaînes de caractères doivent s'ajouter à la suite du contenu déjà existant, pas d'écrasement.
  */
 // TODO Votre code ici
+$file = fopen("blabla.txt", "a+b");
+$tab = ["chaine1","chaine2","chaine3","chaine4","chaine5","chaine6","chaine7","chaine8","chaine9","chaine10"];
+$count = count($tab);
+for ($i = 0; $i < $count; $i++) {
+    fwrite($file, $tab[$i]);
+}
+
+fclose($file);
 
 
 /**
@@ -22,13 +31,19 @@
  */
 // TODO Votre code ici
 
-
+$path = pathinfo("C:\Users\cleme\PhpstormProjects\Exo-160-PHP-Gestion-des-fichiers\index.php");
+echo $path["extension"];
 
 /**
  * 6. Testez si le fichier 'toto' existe, sil n'existe pas, afficher un texte distant que ce fichier n'existe pas !
  */
 // TODO Votre code ici.
-
+if (file_exists("toto")) {
+    echo "il existe";
+}
+else {
+    echo "Nan nan il existe pas";
+}
 
 /**
  * Super bonus.
